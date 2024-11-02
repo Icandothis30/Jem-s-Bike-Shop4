@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Jem's Bike Shop</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <img src="logo.jpg" alt="Jem's Bike Shop Logo" style="width: 70px; height: auto;"> 
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#" class="link">Home</a></li>
+                    <li><a href="#" class="link">Cart</a></li>
+                    <li><a href="#" class="link">Contact</a></li>
+                    <li><a href="#" class="link">About Us</a></li>
+                </ul>
+            </div>
+            <div class="nav-button">
+                <button class="btn white-btn" id="loginBtn" onclick="login()">Sign In</button>
+                <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+
+        <!----------------------------- Form box ----------------------------------->    
+        <div class="form-box">
+            <!------------------- login form --------------------------> 
+            <form class="login-container" id="login" onsubmit="event.preventDefault(); login();" >
+                <div class="top">
+                    <header>Login</header>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Email" required>
+                    <i class="bx bx-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" class="input-field" placeholder="Password" required>
+                    <i class="bx bx-lock-alt"></i>
+                </div>
+                <div class="input-box">
+                    <button type="submit" class="submit">Sign In</button>
+                </div>
+                <div class="two-col">
+                    <div class="one">
+                        <span style="color: white;">Don't have an account? <a href="#" onclick="register()" style="color:white">Sign Up</a></span>
+                    </div>
+                    <div class="two">
+                        <label><a href="#">Forgot password?</a></label>
+                    </div>
+                </div>
+            </form>
+
+            <!------------------- registration form --------------------------> 
+            <form class="register-container" id="register_container" onsubmit="event.preventDefault(); completeRegistration();" >
+                <div class="top">
+                    <header>Sign Up</header>
+                </div>
+                <!-- First and Last Name Row -->
+                <div class="two-forms">
+                    <div class="input-box">
+                        <input type="text" class="input-field" placeholder="First Name" required>
+                        <i class="bx bx-user"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" class="input-field" placeholder="Last Name" required>
+                        <i class="bx bx-user"></i>
+                    </div>
+                </div>
+                
+                <!-- Email Row -->
+                <div class="input-box">
+                    <input type="email" class="input-field" placeholder="Email" required>
+                    <i class="bx bx-envelope"></i>
+                </div>
+
+                <!-- Password Row -->
+                <div class="input-box">
+                    <input type="password" class="input-field" placeholder="Password" required>
+                    <i class="bx bx-lock-alt"></i>
+                </div>
+                <div class="container">
+                    <label for="file-upload" class="custom-file-upload">Attach valid ID</label>
+                    <input id="file-upload" type="file" name="uploadedFile" required>
+                </div>
+                <!-- Submit Button Row -->
+                <div class="input-box">
+                    <button type="submit" class="submit">Register</button>
+                </div>
+             
+
+                <!-- Login Link Row -->
+                <div class="two-col">
+                    <div class="one">
+                        <span style="color: rgb(255, 255, 255);">Have an account? <a href="#" onclick="login()" style="color: rgb(255, 255, 255);">Login</a></span>
+                    </div>
+                    <div class="two">
+                        <label><a href="#">Terms & conditions</a></label>
+                    </div>
+                </div>
+                
+                </div>
+            </form>
+        </div>
+    </div>   
+
+    <script>
+        function myMenuFunction() {
+            var i = document.getElementById("navMenu");
+            if (i.className === "nav-menu") {
+                i.className += " responsive";
+            } else {
+                i.className = "nav-menu";
+            }
+        }
+
+        var a = document.getElementById("loginBtn");
+        var b = document.getElementById("registerBtn");
+        var x = document.getElementById("login");
+        var y = document.getElementById("register_container"); // Update to use the new ID
+        
+        function login() {
+            x.style.left = "4px";
+            y.style.right = "-520px";
+            a.className += " white-btn";
+            b.className = "btn";
+            x.style.opacity = 1;
+            y.style.opacity = 0;
+        }
+        
+        function register() {
+            x.style.left = "-510px";
+            y.style.right = "5px";
+            a.className = "btn";
+            b.className += " white-btn";
+            x.style.opacity = 0;
+            y.style.opacity = 1;
+        }
+
+        // This function completes registration and switches to login view
+        function completeRegistration() {
+            // Perform any additional registration logic here if needed
+
+            // Automatically switch to the login view
+            login();
+        }
+    </script>
+</body>
+</html>
